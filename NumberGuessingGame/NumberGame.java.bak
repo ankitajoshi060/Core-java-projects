@@ -1,0 +1,37 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class NumberGame 
+{
+	public static void main(String[] args) 
+	{
+		Scanner scan=new Scanner(System.in);
+		System.out.println("***********Welcome to Number Guessing Game*************");
+		System.out.println("I've selected a random number between 1 and 50. Try to guess it!");
+		int min=1, max=50;
+		int attempts=0;
+		Random random=new Random();
+		int randomNum=random.nextInt(max-min+1)+min;
+		//System.out.println(randomNum);
+		while (true)
+		{
+			System.out.println("Enter your guess");
+			int number=scan.nextInt();
+			attempts++;
+			if (number==randomNum)
+			{
+				 System.out.println("Congratulations! You guessed the number " + randomNum + " correctly in " + attempts + " attempts.");
+				break;
+			}
+			else if(number>randomNum)
+			{
+				System.out.println("Higher! Try again.");
+			}
+			else
+			{
+				System.out.println("Lower! Try again.");
+			}
+		}
+
+	}
+}
